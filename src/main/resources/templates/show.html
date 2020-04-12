@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <a href="getAllUser" >查询</a>
+    <a href="tolist">新增</a>
+    <a href="exprotExcel" >导出excel</a><br>
+    <form method="post" action="userInfoImport" enctype="multipart/form-data">
+        <input type="file"  name="file" />
+        <input type="submit" value="确认上传" />
+    </form>
+    <hr>
+    <table border="1px" cellpadding="2px" cellspacing="0px">
+        <tr>
+            <td>编号</td>
+            <td>姓名</td>
+            <td>性别</td>
+            <td>地址</td>
+        </tr>
+        <tr th:each="user:${users}">
+            <td th:text="${user.id}">编号</td>
+            <td th:text="${user.name}">姓名</td>
+            <td th:text="${user.sex}">性别</td>
+            <td th:text="${user.address}">地址</td>
+        </tr>
+    </table>
+</body>
+</html>
